@@ -1,6 +1,0 @@
-{
-  "name": "MindShift AI",
-  "description": "Your personal AI behaviour coach to help break bad habits and addictions using conversational AI and interactive widgets.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
