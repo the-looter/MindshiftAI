@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-purple: #a855f7;
+  --color-brand-glow: rgba(168, 85, 247, 0.15);
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.01);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.15);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.35);
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+}
+
+/* Glassmorphism & Prism Panels */
+.glass-panel {
+  background: rgba(10, 8, 20, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Chromatic Shifting Glow on Card Hover */
+.glass-card:hover {
+  background: rgba(168, 85, 247, 0.04);
+  border-color: rgba(168, 85, 247, 0.35);
+  box-shadow: 
+    0 12px 30px rgba(168, 85, 247, 0.12),
+    0 0 1px rgba(168, 85, 247, 0.5);
+  transform: translateY(-2px);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-input:focus {
+  background: rgba(10, 8, 20, 0.8);
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 
+    0 0 25px rgba(168, 85, 247, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  outline: none;
+}
+
+/* Moving Cognitive Mesh Background (A mind shifting and aligning) */
+@keyframes meshShift {
+  0% {
+    background-position: 0% 50%, 50% 100%, 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%, 50% 0%, 50% 50%;
+  }
+  100% {
+    background-position: 0% 50%, 50% 100%, 50% 50%;
+  }
+}
+
+.bg-mesh-glow {
+  background-color: #050409;
+  background-image: 
+    radial-gradient(at 15% 20%, rgba(168, 85, 247, 0.18) 0px, transparent 45%),
+    radial-gradient(at 85% 80%, rgba(79, 70, 229, 0.18) 0px, transparent 45%),
+    radial-gradient(at 50% 45%, rgba(15, 12, 35, 1) 0px, transparent 100%);
+  background-size: 200% 200%;
+  animation: meshShift 16s ease infinite;
+}
+
+/* Typing Indicator Animation */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.18); }
+}
+
+.typing-dot {
+  animation: pulseGlow 1.4s infinite ease-in-out;
+}
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Shimmer Loading Effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer-bg {
+  background: linear-gradient(90deg, rgba(255,255,255,0.02) 25%, rgba(168, 85, 247, 0.08) 50%, rgba(255,255,255,0.02) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+
+/* Custom Message Entry Animation */
+@keyframes slideUpIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-message-in {
+  animation: slideUpIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Float pulse for Emergency Relapse button */
+@keyframes floatPulse {
+  0% { transform: translateY(0px) scale(1); box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4), 0 0 0 0 rgba(239, 68, 68, 0.3); }
+  50% { transform: translateY(-5px) scale(1.02); box-shadow: 0 18px 36px rgba(239, 68, 68, 0.55), 0 0 12px 4px rgba(239, 68, 68, 0.2); }
+  100% { transform: translateY(0px) scale(1); box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4), 0 0 0 0 rgba(239, 68, 68, 0.3); }
+}
+.emergency-pulse {
+  animation: floatPulse 3.5s infinite ease-in-out;
+}
+
+/* Pulse green indicator */
+@keyframes greenPulse {
+  0%, 100% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+  50% { opacity: 1; box-shadow: 0 0 8px 2px rgba(34, 197, 94, 0.3); }
+}
+.pulse-green {
+  animation: greenPulse 2.5s infinite ease-in-out;
+}
+
+/* Dashboard blur lock transition */
+.blur-overlay {
+  background: rgba(8, 6, 16, 0.5);
+  backdrop-filter: blur(12px);
+}
+
+/* Markdown typography settings for Chat Coach text */
+.markdown-body p {
+  margin-bottom: 0.75rem;
+}
+.markdown-body p:last-child {
+  margin-bottom: 0;
+}
+.markdown-body ul, .markdown-body ol {
+  margin-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  list-style-type: disc;
+}
+.markdown-body li {
+  margin-bottom: 0.35rem;
+}
+.markdown-body strong {
+  color: #c084fc;
+  font-weight: 600;
+}
+.markdown-body code {
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  color: #e9d5ff;
+  padding: 0.15rem 0.35rem;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.85em;
+}
